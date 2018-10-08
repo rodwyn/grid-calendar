@@ -1,65 +1,75 @@
 const MONTHNAMES = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
 const WEEKDAYS = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+const DATE = new Date();
 const CURRENTDATE = new Date();
-// document.write("The current month is " + monthNames[d.getMonth()]);
 
 class Calendar {
   constructor() {
-    debugger;
-    this.element = document.querySelector('.calendar');
-    this.renderTitleDays = this.renderTitleDays.bind(this);
-
+    this.calendarElement = document.querySelector('.calendar');
+    this.calendarDaysElement = this.calendarElement.querySelector('.calendar-days');
     this.renderTitleDays();
-    this.renderMonthName();
-    this.renderDays();
+    this.renderMonthName(DATE);
+    this.renderDays(DATE.getMonth(), DATE.getFullYear());
+    this.setMonth = this.setMonth.bind(this);
+
+    this.calendarElement.querySelectorAll('.icon-arrow-right').forEach(icon => icon.addEventListener('click', this.setMonth));
   }
 
-  renderDays() {
-    const days = this.getDaysInMonth(CURRENTDATE.getMonth(), CURRENTDATE.getFullYear());
-    const calendarDaysElement = this.element.querySelector('.calendar-days');
+  renderDays(month, day) {
+    const days = this.getDaysInMonth(month, day);
 
-    for (let i = 0; i < days[0].getDay(); i++) {
-      const spanElement = document.createElement('span');
-      calendarDaysElement.append(spanElement);
-    }
+    this.calendarDaysElement.innerHTML = '';
 
     days.map(day => {
       const spanElement = document.createElement('span');
       spanElement.innerHTML = day.getDate();
 
-      if (day.getDate() === CURRENTDATE.getDate()) {
+      if (day.getMonth() === CURRENTDATE.getMonth() && day.getDate() === CURRENTDATE.getDate()) {
         spanElement.classList.add('current-day');
       }
 
-      calendarDaysElement.append(spanElement);
+      this.calendarDaysElement.append(spanElement);
     });
   }
 
   renderTitleDays() {
-    const calendarDaysElement = this.element.querySelector('.calendar-days');
-
     WEEKDAYS.map(day => {
       const spanElement = document.createElement('span');
+
       spanElement.innerHTML = day;
-      calendarDaysElement.append(spanElement);
+      this.calendarDaysElement.append(spanElement);
     });
   }
 
-  renderMonthName() {
-    const currentMonthElement = this.element.querySelector('#current-month');
-    currentMonthElement.innerText = `${MONTHNAMES[CURRENTDATE.getMonth()]}, ${CURRENTDATE.getFullYear()}`;
+  renderMonthName(date) {
+    const currentMonthElement = this.calendarElement.querySelector('#current-month');
+    currentMonthElement.innerText = `${MONTHNAMES[date.getMonth()]}, ${date.getFullYear()}`;
   }
 
  getDaysInMonth(month, year) {
-   const date = new Date(year, month, 1);
+   const firstDay = new Date(year, month, 1);
+   const prevMonthDays = firstDay.getDay();
+   const lastDay = new Date(year, month + 1, 0);
+   const nextMonthDays = lastDay.getDay();
    const days = [];
 
-   while (date.getMonth() === month) {
-      days.push(new Date(date));
-      date.setDate(date.getDate() + 1);
+   firstDay.setDate(firstDay.getDate() - prevMonthDays);
+   lastDay.setDate(lastDay.getDate() + (6 - nextMonthDays));
+
+   while (firstDay <= lastDay) {
+      days.push(new Date(firstDay));
+      firstDay.setDate(firstDay.getDate() + 1);
    }
 
    return days;
+ }
+
+ setMonth(event) {
+   const setMonthValue = parseInt(event.target.dataset.setMonth);
+
+   DATE.setMonth(DATE.getMonth() + setMonthValue);
+   this.renderMonthName(DATE);
+   this.renderDays(DATE.getMonth(), DATE.getFullYear());
  }
 }
 
