@@ -1,0 +1,52 @@
+.container,
+.container-gap {
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: repeat($grid-columns, 1fr);
+}
+
+.container-gap {
+  grid-gap: $grid-gap-size;
+}
+
+@mixin generate-columns($columns) {
+  @for $i from 1 through $columns {
+    .col-#{$i} {
+      grid-column: span $i;
+    }
+  }
+
+  @media (min-width: $media-breakpoint-sm) {
+    @for $i from 1 through $columns {
+      .col-sm-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+
+  @media (min-width: $media-breakpoint-md) {
+    @for $i from 1 through $columns {
+      .col-md-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+
+  @media (min-width: $media-breakpoint-lg) {
+    @for $i from 1 through $columns {
+      .col-lg-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+
+  @media (min-width: $media-breakpoint-xl) {
+    @for $i from 1 through $columns {
+      .col-xl-#{$i} {
+        grid-column: span $i;
+      }
+    }
+  }
+}
+
+@include generate-columns($grid-columns);

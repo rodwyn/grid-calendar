@@ -1,0 +1,36 @@
+.calendar-controls {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin-bottom: $space-sm;
+
+  > span {
+    cursor: pointer;
+    justify-self: center;
+
+    &:first-child {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  span {
+    justify-self: center;
+    padding: $space-sm 0;
+
+    &:not(:nth-child(-n+7)) {
+      cursor: pointer;
+    }
+  }
+
+  .current-day {
+    background: $darkest-blue;
+    color: $white;
+    font-weight: $font-weight-bold;
+    margin: 12px 0;
+    padding: 0;
+  }
+}

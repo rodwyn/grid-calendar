@@ -1,0 +1,167 @@
+[class^='icon-'],
+[class*=' icon-'] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: $font-family-icon !important;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  speak: none;
+  text-transform: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-activity::before {
+  content: '\e900';
+}
+
+.icon-archive::before {
+  content: '\e901';
+}
+
+.icon-arrow-down::before {
+  content: '\e902';
+}
+
+.icon-arrow-right::before {
+  content: '\e903';
+}
+
+.icon-arrow-up::before {
+  content: '\e904';
+}
+
+.icon-bar-chart::before {
+  content: '\e905';
+}
+
+.icon-bell::before {
+  content: '\e906';
+}
+
+.icon-book-open::before {
+  content: '\e907';
+}
+
+.icon-bookmark::before {
+  content: '\e908';
+}
+
+.icon-briefcase::before {
+  content: '\e909';
+}
+
+.icon-camera::before {
+  content: '\e90a';
+}
+
+.icon-check::before {
+  content: '\e90b';
+}
+
+.icon-check-circle::before {
+  content: '\e90c';
+}
+
+.icon-clipboard::before {
+  content: '\e90d';
+}
+
+.icon-clock::before {
+  content: '\e90e';
+}
+
+.icon-credit-card::before {
+  content: '\e90f';
+}
+
+.icon-database::before {
+  content: '\e910';
+}
+
+.icon-facebook::before {
+  content: '\e911';
+}
+
+.icon-file-text::before {
+  content: '\e912';
+}
+
+.icon-github::before {
+  content: '\e913';
+}
+
+.icon-heart::before {
+  content: '\e914';
+}
+
+.icon-help-circle::before {
+  content: '\e915';
+}
+
+.icon-home::before {
+  content: '\e916';
+}
+
+.icon-instagram::before {
+  content: '\e917';
+}
+
+.icon-linkedin::before {
+  content: '\e918';
+}
+
+.icon-lock::before {
+  content: '\e919';
+}
+
+.icon-mail::before {
+  content: '\e91a';
+}
+
+.icon-power::before {
+  content: '\e91b';
+}
+
+.icon-rotate-cw::before {
+  content: '\e91c';
+}
+
+.icon-search::before {
+  content: '\e91d';
+}
+
+.icon-thumbs-down::before {
+  content: '\e91e';
+}
+
+.icon-thumbs-up::before {
+  content: '\e91f';
+}
+
+.icon-trash-2::before {
+  content: '\e920';
+}
+
+.icon-twitter::before {
+  content: '\e921';
+}
+
+.icon-user::before {
+  content: '\e922';
+}
+
+.icon-wifi::before {
+  content: '\e923';
+}
+
+.icon-x::before {
+  content: '\e924';
+}
+
+.icon-x-circle::before {
+  content: '\e925';
+}

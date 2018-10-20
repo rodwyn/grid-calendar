@@ -1,0 +1,28 @@
+body {
+  background: $navigation-bg-color;
+  color: $font-color-base;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+}
+
+section {
+  background: $white;
+  padding: $space-md;
+}
+
+small {
+  font-size: $space-sm;
+}
+
+.danger {
+  color: $danger;
+}
+
+.success {
+  color: $success;
+}
+
+.warning {
+  color: $warning;
+}
